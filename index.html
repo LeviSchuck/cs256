@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Levi's part</title>
+<style>
+#comments {
+	position: absolute;
+	top: 400px;
+	left: 500px;
+}
+#comments-header {
+	background-image: url('comments-top.png');
+	width: 835px;
+	height: 102px;
+}
+#comments-ask {
+	float: right;
+	width: 117px;
+	height: 91px;
+	background-image: url('ask-ta.png');
+	border: none;
+	margin-top: 2px;
+	cursor: pointer;
+}
+#comments-ask:hover {
+	background-image: url('ask-ta-hover.png');
+}
+#comments-list {
+	position: relative;
+}
+.comments-comment {
+	margin-left: 11px;
+	background-image: url('comment.png');
+	width: 816px;
+	height: 243px;
+	position: relative;
+}
+.comments-comment-ask {
+	position: absolute;
+	bottom: 12px;
+	right: 20px;
+	width: 230px;
+	height: 40px;
+	/*background-color: rgba(255,255,255,0.4);*/
+	cursor: pointer;
+}
+.comments-comment-delete {
+	display:none;
+	width: 36px;
+	height: 27px;
+	background-image: url('xbutton.png');
+	position:absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}
+body.is-admin .comments-comment-delete {
+	display:block;
+}
+.comments-comment-delete:hover {
+	background-image: url('xbutton.png');
+	/*Replace with a hover-version please*/
+}
+</style>  
+</head>
+<body>
+<button id="go-admin">Go Admin</button>
+<div id="comments">
+	<div id="comments-header">
+		<div id="comments-ask"></div>
+	</div>
+	<div id="comments-list">
+	</div>
+</div>
+<script id="temp" type="text/template">
+	<div class="comments-comment">
+		<div class="comments-comment-delete"></div>
+		<div class="comments-comment-ask"></div>
+	</div>
+</script>
+<!-- In case some one else uses jQuery, everything I've written is compatible and zepto can be removed. -->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script type="text/javascript">
+var isAdmin = false;
+function toggleAdmin(){
+	$('body').toggleClass('is-admin');
+	isAdmin = $('body').hasClass('is-admin');
+}
+// Prepare the existing comments list
+$(document).ready(function(){
+	var clist = $('#comments-list');
+	var template = $('#temp').html();
+	for(var i = 0; i < 3; i++) {
+		// add some preliminary comments.
+		clist.append(template);
+	}
+});
+// Create bindings to the list.
+$(document).ready(function(){
+	$('#go-admin').click(function(){
+		toggleAdmin();
+	});
+	$('.comments-comment-ask').live('click',function(){
+		if(isAdmin){
+			alert("Admin clicked ask about this post/edit");
+		}else{
+			alert("User clicked ask about this post");
+		}
+	});
+	$('.comments-comment-delete').live('click',function(){
+		$(this).parent().remove();
+	});
+	$('#comments-ask').click(function(){
+		if(isAdmin){
+			//Insert a process here if you want to have an overlay thing for what to type in.
+			$('#comments-list').append($('#temp').html());
+		}else{
+			alert("User clicked ask a TA");
+		}
+	});
+
+	
+});
+
+</script>
+</body>
+</html>
