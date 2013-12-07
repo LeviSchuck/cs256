@@ -125,9 +125,9 @@ body.is-admin .comments-comment-delete {
 		height: 48px;
 	}
 	.vocab-list {
-		width: 321px;
+		width: 296px;
 		height: 48px;
-		margin-left: 35px;
+		margin-left: 60px;
 	}
 /*///////////////////// MATT'S CSS END ///////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////////// */
