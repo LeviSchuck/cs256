@@ -199,13 +199,12 @@ body.is-admin .comments-comment-delete {
         height: 116px;}
 
 #video {
-        background-image: url('top-video-area.png');
         width: 836px;
         height: 538px;
 }
 
 #admin-login-button {
-	background-image: url('admin-login.png');
+		background-image: url('admin-login.png');
         width: 173px;
         height: 26px;
         cursor: pointer;
@@ -218,7 +217,7 @@ body.is-admin .comments-comment-delete {
 
 body.is-admin #admin-login-button {
         background-image: url('logout.png');
-        width: 485px;
+        width: 173px;
         height: 26px;
 }
 
@@ -365,6 +364,11 @@ Zepto(document).ready(function(){
                 $('#admin-login-button').click(function(){
                         toggleAdmin();
                         updateLeftPanel();
+                        if ($('body.is-admin #admin-login-button').length) {
+                        	$('#admin-login-button').attr('data-toggle', 'modal').attr('data-target'='#Login-Modal');
+                        } else {
+                        	$('#admin-login-button').attr('data-toggle', '').attr('data-target'='');
+                        }
                 });
         });
 
