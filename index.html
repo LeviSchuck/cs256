@@ -225,6 +225,11 @@ body.is-admin #admin-login-button {
 	background: white;
 }
 
+#embedded-video {
+	margin-top: 103px;
+	margin-left: 12px;
+}
+
 </style>  
 </head>
 <body>
@@ -343,7 +348,7 @@ $(document).ready(function(){
 	}
 	function videoClicked(videoId) {
 		if($('#' + videoId).length > 0)
-			alert(videoId);	
+			changeVideo();
 	}
 /* //////////////////// MATT'S JAVASCRIPT END //////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////// */
@@ -355,6 +360,16 @@ $(document).ready(function(){
 			updateLeftPanel();
 		});
 	});
+	
+	function changeVideo() {
+		var videos = ['http://www.youtube.com/embed/V_OoVThi0io',
+					'http://www.youtube.com/embed/3ifyhMgUM6A', 
+					'http://www.youtube.com/embed/3jkJBGlK-8g', 
+					'http://www.youtube.com/embed/ttZhk9OQZHI'];
+		var url = videos[Math.floor(Math.random() * videos.length)];
+		$('#video-section').html('<iframe id="embedded-video" width="810" height="406" src="' + 
+			url + '?modestbranding=1" frameborder="0" allowfullscreen></iframe>');
+	}
 </script>
 
 
@@ -449,6 +464,9 @@ $(document).ready(function(){
 			<div class="comments pull-right">
 				<div id="video">
 					<div id="admin-login-button" class="pull-right"></div>
+					<div id="video-section">
+						<iframe id="embedded-video" width="810" height="406" src="http://www.youtube.com/embed/ttZhk9OQZHI?modestbranding=1" frameborder="0" allowfullscreen></iframe>
+					</div>
 				</div>
 				<div id="comments-header">
 					<div id="comments-ask" data-toggle="modal" data-target="#myModal"></div>
