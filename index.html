@@ -22,6 +22,10 @@
     <![endif]-->
 <style>
 
+body {
+	background-color: #ebe8e0;
+}
+
 #comments-header {
 	background-image: url('comments-top.png');
 	width: 831px;
@@ -205,6 +209,12 @@ body.is-admin .comments-comment-delete {
 /*///////////////////// MATT'S CSS END ///////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////////// */
 
+#video-header {
+	position: absolute;
+	background-image: url('video-header.png');
+	width: 836px;
+	height: 116px;}
+
 #video {
 	background-image: url('top-video-area.png');
 	width: 836px;
@@ -233,6 +243,7 @@ body.is-admin #admin-login-button {
 </style>  
 </head>
 <body>
+
 	<div class = "container">
 
 <script id="temp" type="text/template">
@@ -355,21 +366,29 @@ $(document).ready(function(){
 
 	$(document).ready(function(){
 		$('#admin-login-button').click(function(){
-			alert("Admin login");
 			toggleAdmin();
 			updateLeftPanel();
 		});
 	});
+
 	
 	function changeVideo() {
 		var videos = ['http://www.youtube.com/embed/V_OoVThi0io',
 					'http://www.youtube.com/embed/3ifyhMgUM6A', 
 					'http://www.youtube.com/embed/3jkJBGlK-8g', 
 					'http://www.youtube.com/embed/ttZhk9OQZHI'];
+		
+		
 		var url = videos[Math.floor(Math.random() * videos.length)];
+		
+
+
 		$('#video-section').html('<iframe id="embedded-video" width="810" height="406" src="' + 
 			url + '?modestbranding=1" frameborder="0" allowfullscreen></iframe>');
 	}
+
+	
+
 </script>
 
 
@@ -437,9 +456,10 @@ $(document).ready(function(){
 			<div id="vx4" class="x_button" onclick="deleteVideo('vw4');"></div>
 		</div>
 	</script>
+
 	<div class="row">
         
-        <div class="col-md-4">
+        <div class="col-md-4"><h4><div id="admin-login-button" data-toggle="modal" data-target="#Login-Modal">Admin Login</div></h4>
       </div>
 		
 	<div id="left-panel">
@@ -462,17 +482,31 @@ $(document).ready(function(){
 		</div></div>
 
 		<div class="col-md-8">
+
+
 			<div class="comments pull-right">
+
 				<div id="video">
-					<div id="admin-login-button" class="pull-right"></div>
+					<div id ="video-header"></div>
+					
 					<div id="video-section">
+						
 						<iframe id="embedded-video" width="810" height="406" src="http://www.youtube.com/embed/ttZhk9OQZHI?modestbranding=1" frameborder="0" allowfullscreen></iframe>
+
 					</div>
+
 				</div>
+
+
 				<div id="comments-header">
+
 					<div id="comments-ask" data-toggle="modal" data-target="#myModal"></div>
+
+
 				</div>
 				<div id="comments-list">
+
+
 				</div>
 			</div>
 		</div>
@@ -548,6 +582,47 @@ $(document).ready(function(){
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- Modal Login -->
+<div class="modal fade" id="Login-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Log in</h4>
+      </div>
+      <div class="modal-body">
+      	<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  
+</form>
+      	
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Sign in</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
@@ -581,7 +656,14 @@ $(document).ready(function(){
 
 
 
-</div> <!-- container end -->
+
+</div> <!-- container end --></br>
+   <div id="footer">
+      <div class="container">
+        <p class="text-muted pull-right">Copyright Team P-cannon | <a href = "#">Contact Us </a></p>
+      </div>
+    </div>
+
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src = "dist/js/bootstrap.js"></script>
 

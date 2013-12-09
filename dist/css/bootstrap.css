@@ -847,6 +847,8 @@ pre code {
   content: " ";
 }
 
+.col-md-8 {padding-top:79px;}
+
 .row:after {
   clear: both;
 }
