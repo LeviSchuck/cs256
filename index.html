@@ -259,9 +259,13 @@ Zepto(document).ready(function(){
 
         Zepto('.comments-comment-ask').live('click',function(){
                 if(isAdmin){
-                        alert("Admin clicked ask about this post/edit");
+                    $('#editQuestion .add').hide();
+                    $('#editQuestion .save').show();
+                    $('#editQuestionLabel').html('Edit comment');
+                    $('#editQuestion').modal();
                 }else{
-                        alert("User clicked ask about this post");
+                    $('#askQuestionLabel').html('Ask about TA Note # on Video #');
+                    $('#askQuestion').modal()
                 }
         });
         Zepto('.comments-comment-delete').live('click',function(){
@@ -269,11 +273,18 @@ Zepto(document).ready(function(){
         });
         Zepto('#comments-ask').click(function(){
                 if(isAdmin){
-                        //Insert a process here if you want to have an overlay thing for what to type in.
-                        $('#comments-list').append($('#temp').html());
+                    $('#editQuestion .add').show();
+                    $('#editQuestion .save').hide();
+                    $('#editQuestionLabel').html('Add a comment');
+                    $('#editQuestion').modal();
+                    
                 }else{
-                        alert("User clicked ask a TA");
+                    $('#askQuestionLabel').html('Ask about Video #');
+                    $('#askQuestion').modal()
                 }
+        });
+        Zepto('#editQuestion .add').click(function(){
+            $('#comments-list').append($('#temp').html());
         });
 
         
@@ -485,7 +496,7 @@ Zepto(document).ready(function(){
 
                                 <div id="comments-header">
 
-                                        <div id="comments-ask" data-toggle="modal" data-target="#myModal"></div>
+                                        <div id="comments-ask"></div>
 
 
                                 </div>
@@ -518,6 +529,50 @@ Zepto(document).ready(function(){
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-success" data-dismiss="modal">Send Email</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal ask Question -->
+<div class="modal fade" id="askQuestion" tabindex="-1" role="dialog" aria-labelledby="askQuestionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="askQuestionLabel">Ask about TA Note # on Video #</h4>
+      </div>
+      <div class="modal-body">
+              <h5>Your E-Mail</h5>
+              <input type="text" class="form-control" placeholder="Your E-Mail address">
+              <h5>Subject</h5>
+              <input type="text" class="form-control" placeholder="Subject">
+              <h5>Your Question</h5>
+        <textarea class="form-control" rows="3" placeholder="Ask about .."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Send Email</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Modal ask Question -->
+<div class="modal fade" id="editQuestion" tabindex="-1" role="dialog" aria-labelledby="editQuestionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="editQuestionLabel">Edit comment</h4>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" rows="5" placeholder="">Bacon ipsum dolor sit amet doner prosciutto beef ribs tri-tip. Pork belly brisket prosciutto bacon ham andouille meatloaf beef ribs pork loin biltong kielbasa meatball corned beef ground round leberkas. Ham hock kevin shankle pancetta, cow turducken boudin bacon t-bone ham pastrami sausage jowl. Leberkas beef tenderloin brisket. Rump shankle tri-tip jowl.
+        </textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success save" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-success add" data-dismiss="modal">Add</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
