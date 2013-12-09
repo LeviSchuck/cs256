@@ -2,24 +2,7 @@
 <html>
 <head>
 <title>ASL 101</title>
- <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
-
-            <!-- Bootstrap core CSS -->
-     <link href="dist/css/bootstrap.css" rel="stylesheet">
-    <!-- Bootstrap core JS -->
-   
-
-
-    
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+<link href="dist/css/bootstrap.css" rel="stylesheet" />
 <style>
 
 body {
@@ -247,7 +230,7 @@ body.is-admin #admin-login-button {
 </head>
 <body>
 
-        <div class = "container">
+        <div class="container">
 
 <script id="temp" type="text/template">
         <div class="comments-comment">
@@ -255,7 +238,6 @@ body.is-admin #admin-login-button {
                 <div class="comments-comment-ask"></div>
         </div>
 </script>
-<!-- In case some one else uses jQuery, everything I've written is compatible and zepto can be removed. -->
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
 <script type="text/javascript">
 var isAdmin = false;
@@ -273,19 +255,19 @@ $(document).ready(function(){
         }
 });
 // Create bindings to the list.
-$(document).ready(function(){
+Zepto(document).ready(function(){
 
-        $('.comments-comment-ask').live('click',function(){
+        Zepto('.comments-comment-ask').live('click',function(){
                 if(isAdmin){
                         alert("Admin clicked ask about this post/edit");
                 }else{
                         alert("User clicked ask about this post");
                 }
         });
-        $('.comments-comment-delete').live('click',function(){
+        Zepto('.comments-comment-delete').live('click',function(){
                 $(this).parent().remove();
         });
-        $('#comments-ask').click(function(){
+        Zepto('#comments-ask').click(function(){
                 if(isAdmin){
                         //Insert a process here if you want to have an overlay thing for what to type in.
                         $('#comments-list').append($('#temp').html());
@@ -627,48 +609,15 @@ $(document).ready(function(){
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div> <!-- container end --></br>
    <div id="footer">
       <div class="container">
-        <p class="text-muted pull-right">Copyright Team P-cannon | <a href = "#">Contact Us </a></p>
+        <p class="text-muted pull-right">Copyright Team P-cannon | <a href="#">Contact Us </a></p>
       </div>
     </div>
 
-<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src = "dist/js/bootstrap.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="dist/js/bootstrap.js"></script>
 
 </body>
 </html>
