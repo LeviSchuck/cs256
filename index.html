@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Levi's part</title>
+<title>ASL 101</title>
  <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
    	 <!-- Bootstrap core CSS -->
@@ -22,11 +22,6 @@
     <![endif]-->
 <style>
 
-.comments {
-	
-	padding-top: 400px;
-	
-}
 #comments-header {
 	background-image: url('comments-top.png');
 	width: 831px;
@@ -150,12 +145,30 @@ body.is-admin .comments-comment-delete {
 /*///////////////////// MATT'S CSS END ///////////////////////////////////// */
 /* ///////////////////////////////////////////////////////////////////////// */
 
+#video {
+	background-image: url('top-video-area.png');
+	width: 836px;
+	height: 538px;
+}
+
+#admin-login-button {
+	width: 169px;
+	height: 28px;
+	cursor: pointer;
+}
+
+.comments {
+	padding-top: 21px;
+}
+
+body.is-admin #admin-login-button {
+	background: white;
+}
 
 </style>  
 </head>
 <body>
 	<div class = "container">
-<button id="go-admin">Go Admin</button>
 
 <script id="temp" type="text/template">
 	<div class="comments-comment">
@@ -182,10 +195,7 @@ $(document).ready(function(){
 });
 // Create bindings to the list.
 $(document).ready(function(){
-	$('#go-admin').click(function(){
-		toggleAdmin();
-		updateLeftPanel();
-	});
+
 	$('.comments-comment-ask').live('click',function(){
 		if(isAdmin){
 			alert("Admin clicked ask about this post/edit");
@@ -262,6 +272,14 @@ $(document).ready(function(){
 	}
 /* //////////////////// MATT'S JAVASCRIPT END //////////////////////////// */
 /* /////////////////////////////////////////////////////////////////////// */
+
+	$(document).ready(function(){
+		$('#admin-login-button').click(function(){
+			alert("Admin login");
+			toggleAdmin();
+			updateLeftPanel();
+		});
+	});
 </script>
 
 
@@ -341,13 +359,18 @@ $(document).ready(function(){
 			<div id="video-list"></div>
 			<div id="back-to-chapters" class="left-list" onclick="backToChapters()"></div>
 		</div></div>
-		<div class="col-md-8"><div class="comments pull-right">
-	<div id="comments-header">
-		<div id="comments-ask" data-toggle="modal" data-target="#myModal"></div>
-	</div>
-	<div id="comments-list">
-	</div>
-</div></div>
+		<div class="col-md-8">
+			<div class="comments pull-right">
+				<div id="video">
+					<div id="admin-login-button" class="pull-right"></div>
+				</div>
+				<div id="comments-header">
+					<div id="comments-ask" data-toggle="modal" data-target="#myModal"></div>
+				</div>
+				<div id="comments-list">
+				</div>
+			</div>
+		</div>
 	</div>
 
 
