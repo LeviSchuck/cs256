@@ -847,6 +847,8 @@ pre code {
   content: " ";
 }
 
+.col-md-8 {padding-top:53px;}
+
 .row:after {
   clear: both;
 }
@@ -4487,9 +4489,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
+  font-family:Hiragino Sans GB;
   float: left;
-  padding: 15px 15px;
-  font-size: 18px;
+  padding: 22.5px 0px;
+  font-size: 60px;
   line-height: 20px;
 }
 
