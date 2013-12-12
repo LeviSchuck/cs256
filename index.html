@@ -320,17 +320,21 @@ Zepto(document).ready(function(){
         });
 
         function search() {
-                $('.chapter').hide();
-                $('#search-result-list').show();
+                $('.chapter').hide(500);
+                $('#search-result-list').show(500);
                 hideVocabVideos();
         }
         function hideVocabVideos() {
-                $('.openVocab').removeClass('openVocab');
-                $('.vocab').remove();        
+        	$('.openVocab').hide(500);
+		  var r = $.Deferred();
+		  setTimeout(function () {
+		    r.resolve();
+		  }, 500);
+		  return r;
         }
         function backToChapters() {
-                $('.chapter').show();
-                $('#search-result-list').hide();
+                $('.chapter').show(500);
+                $('#search-result-list').hide(500);
         }
         function showVocab(chapterID) {
                 var selectedChapter = $("#" + chapterID);
@@ -338,16 +342,24 @@ Zepto(document).ready(function(){
                         selectedChapter.removeClass("openVocab");
                          selectedChapter.html("");
                 } else {
-                        hideVocabVideos();
-                        selectedChapter.addClass("openVocab");
-                        var chapterTemplate = $('#vocab-template').html();
-                        selectedChapter.append(chapterTemplate);
+			var hideFunction = hideVocabVideos();
+			hideFunction.done(function () {
+		        	$('.openVocab').removeClass('openVocab');
+		        	$('.vocab').remove(); 
+		                selectedChapter.addClass("openVocab");
+		                var chapterTemplate = $('#vocab-template').html();
+				$(".openVocab").hide();
+		                selectedChapter.append(chapterTemplate);
+				$(".openVocab").show(500);
+
+			});
                 }
                 if(isAdmin){
                         $('.x_button').show();
                 }else{
                         $('.x_button').hide();
                 }
+
         }
         function deleteVideo(videoId) {
                 if(confirm('Any deleted video will be permanent.\n Continue?'))
