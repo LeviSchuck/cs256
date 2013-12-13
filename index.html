@@ -70,18 +70,19 @@ body.is-admin .comments-comment-delete {
                 
         }
         #search-submit{
+                background-image: url('left-panel/search.png');
                 position: absolute;
                 top: 0px;        
-                height: 60px;
-                width: 30px;
+                height: 48px;
+                width: 58px;
         }
-
+	#search-submit:hover {background-image: url('left-panel/on-hover-search.png');}
         #search {
                 background-image: url('left-panel/search.png');
                 width: 382px;
                 height:60px;
         }
-        #search:hover {background-image: url('left-panel/on-hover-search.png');}
+
         #search-admin {
                 display: none;
                 background-image: url('left-panel/search-admin.png');
@@ -293,6 +294,18 @@ Zepto(document).ready(function(){
 
 /* //////////////////////////////////////////////////////////////////////////// */
 /*///////////////////// MATT'S JAVASCRIPT ///////////////////////////////////// */
+	$(document).ready(function() {
+	    $('#searchInput').keypress(function(e) {
+		if(e.which == 13) {
+			search();
+		}
+	    });
+	    $('#searchInput-admin').keypress(function(e) {
+		if(e.which == 13) {
+			search();
+		}
+	    });
+	});
         function updateLeftPanel() {
                 if(isAdmin){
                         $('#search-admin').show();
@@ -478,11 +491,13 @@ Zepto(document).ready(function(){
                 
         <div id="left-panel">
                 <div id="search">
-                        <input type="text" name="LastName" value="      Search Vocab Words" 
+                        <input id="searchInput" type="text" name="searchInput" value="" placeholder=" Search Vocab Words" 
+				onfocus="if (this.value == '') {this.value = '    ';}" onblur="if (this.value == '    ') {this.value = '';}"
                                 style="float: right; width:320px; height: 45px; margin: 4px; font-size:larger;">
                 </div>
                 <div id="search-admin">
-                        <input type="text" name="LastName" value="      Search Vocab Words" 
+                        <input id="searchInput-admin" type="text" name="searchInput-admin" value="" placeholder=" Search Vocab Words" 
+				onfocus="if (this.value == '') {this.value = '    ';}" onblur="if (this.value == '    ') {this.value = '';}"
                                 style="float: right; width:320px; height: 45px; margin: 2px; font-size:larger;">
                 </div>
                 <div id="search-submit" onclick="search();"></div>
