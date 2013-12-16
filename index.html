@@ -58,13 +58,14 @@ background-position:center;
 }
 .comments-comment-delete {
         display:none;
-        width: 36px;
-        height: 27px;
+        width: 18px;
+        height: 18px;
         background-image: url('xbutton.png');
         position:absolute;
         right: 0;
         top: 0;
         cursor: pointer;
+	margin: 15px;
 }
 body.is-admin .comments-comment-delete {
         display:block;
@@ -403,8 +404,7 @@ Zepto(document).ready(function(){
 
         }
         function deleteVideo(videoId) {
-                if(confirm('Any deleted video will be permanent.\n Continue?'))
-                        $("#" + videoId).remove();
+                $("#" + videoId).remove();
         }
         function videoClicked(videoId) {
                 if($('#' + videoId).length > 0)
