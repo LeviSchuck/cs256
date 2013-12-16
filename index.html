@@ -414,13 +414,17 @@ Zepto(document).ready(function(){
 /* /////////////////////////////////////////////////////////////////////// */
 
         $(document).ready(function(){
-                $('#admin-signin-button').click(function(){
+                $('#admin-signin-button').click(function() {
                         toggleAdmin();
                         updateLeftPanel();
+                });
+                $('#admin-login-button').click(function() {
                         if ($('body.is-admin #admin-login-button').length) {
-                        	$('#admin-login-button').attr('data-toggle', 'modal').attr('data-target'='#Login-Modal');
-                        } else {
+                        	toggleAdmin();
+                        	updateLeftPanel();
                         	$('#admin-login-button').attr('data-toggle', '').attr('data-target'='');
+                        } else {
+                        	$('#admin-login-button').attr('data-toggle', 'modal').attr('data-target'='#Login-Modal');
                         }
                 });
         });
