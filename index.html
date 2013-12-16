@@ -229,7 +229,7 @@ body.is-admin .comments-comment-delete {
 
 body.is-admin #admin-login-button {
         background-image: url('logout.png');
-        width: 173px;
+        width: 484px;
         height: 26px;
 }
 
@@ -354,6 +354,24 @@ Zepto(document).ready(function(){
 		  setTimeout(function () {
 		    r.resolve();
 		  }, 500);
+                  if(isAdmin){
+                        $('.x_button').show();
+                  }else{
+                        $('.x_button').hide();
+                  }
+		  return r;
+        }
+        function showVocabVideos() {
+        	$('.openVocab').show(500);
+		  var r = $.Deferred();
+		  setTimeout(function () {
+		    r.resolve();
+		  }, 500);
+	       	 if(isAdmin){
+	                $('.x_button').show();
+	         }else{
+	                $('.x_button').hide();
+	         }
 		  return r;
         }
         function backToChapters() {
@@ -374,8 +392,7 @@ Zepto(document).ready(function(){
 		                var chapterTemplate = $('#vocab-template').html();
 				$(".openVocab").hide();
 		                selectedChapter.append(chapterTemplate);
-				$(".openVocab").show(500);
-
+				showVocabVideos();
 			});
                 }
                 if(isAdmin){
