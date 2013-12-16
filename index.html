@@ -414,7 +414,7 @@ Zepto(document).ready(function(){
 /* /////////////////////////////////////////////////////////////////////// */
 
         $(document).ready(function(){
-                $('#admin-login-button').click(function(){
+                $('#admin-signin-button').click(function(){
                         toggleAdmin();
                         updateLeftPanel();
                         if ($('body.is-admin #admin-login-button').length) {
@@ -719,7 +719,7 @@ Zepto(document).ready(function(){
               
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal">Sign in</button>
+        <button type="button" id="admin-signin-button" class="btn btn-success" data-dismiss="modal">Sign in</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
